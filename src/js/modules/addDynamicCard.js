@@ -8,7 +8,10 @@ const dynamic = ()=>{
     const btnChange = document.querySelector('.main__btn');
     let storage = [];
     let dataDb = dataArrEng;
-
+    if(localStorage.getItem('dataArrRus')){
+        dataDb = dataArrRus;
+        btnChange.textContent = 'Change language to 🇺🇸';
+    }
 
     function createCards(data){
       data.forEach(item => {
@@ -80,6 +83,15 @@ const dynamic = ()=>{
     updBar();
     result.textContent = dataDb.length;
 
+    btnChange.addEventListener('click',function(e){
+        if(localStorage.getItem('dataArrRus')){ //patern for 1 btn
+            localStorage.removeItem('dataArrRus');
+        }else{
+            localStorage.setItem('dataArrRus', true);
+        }
+        window.location.reload();
+    });
+    
     
     
 };
