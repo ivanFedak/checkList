@@ -40,7 +40,7 @@
   font-style: normal;
 }
 * {
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-size: 16px;
   color: #333;
 }
@@ -215,12 +215,8 @@ body.ie ._ibg img {
 }
 .item-main__text {
   padding-left: 10px;
-  font-size: 22px;
-}
-@media (max-width: 1230px) {
-  .item-main__text {
-    font-size: calc(19px + 3 * ((100vw - 320px) / 910));
-  }
+  font-weight: 400;
+  font-size: 20px;
 }
 
 .bottom-main {

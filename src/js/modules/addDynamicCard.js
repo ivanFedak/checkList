@@ -7,11 +7,72 @@ const dynamic = ()=>{
 
     const dataArr = [
         {text: '👶 Be born',},
-        {text: '🚀 Fly',},
-        {text: '🤗 Find Frieds',},
-        {text: '🏫 go to school',},
-        {text: '📱 buy new phone',},
-        {text: '☎️ sold old phone',},
+        {text: '🚶‍ Take first steps',},
+        {text: '📣 Say first words',},
+        {text: '👨‍🏫 Learn to read',},
+        {text: '🤗 Make a friend',},
+        {text: '🚴‍ Learn to ride a bike',},
+        {text: '📗 Read a book',},
+        {text: '🏊‍ Learn to swim',},
+        {text: '🏫 Finish elementary school',},
+        {text: '⚽ Play a sport',},
+        {text: '🛫 Fly in a plane',},
+        {text: '🛥️ Ride a boat',},
+        {text: '🚆 Ride in a train',},
+        {text: '🚁 Ride a helicopter',},
+        {text: '🌊 See the ocean',},
+        {text: '❄️ See snow',},
+        {text: '☃️ Make a snowman',},
+        {text: '🏫 Finish middle school',},
+        {text: '🎶 Go to a concert',},
+        {text: '🏕️ Go camping',},
+        {text: '🎢 Ride a rollercoaster',},
+        {text: '🎻 Play an instrument',},
+        {text: '💋 Get kissed',},
+        {text: '💳 Get a credit card',},
+        {text: '🚘 Start driving',},
+        {text: '🗺️ Go on a roadtrip',},
+        {text: '🗾 Visit another country',},
+        {text: '🎤 Give a speech',},
+        {text: '🏫 Graduate high school',},
+        {text: '🌐 Learn another language',},
+        {text: '💸 Invest some money',},
+        {text: '📷 Meet an idol',},
+        {text: '😩 Make a terrible mistake',},
+        {text: '🏆 Win a trophy',},
+        {text: '⛰️ Climb a mountain',},
+        {text: '🎽 Run a marathon',},
+        {text: '🍳 Learn to cook',},
+        {text: '🔦 Explore a cave',},
+        {text: '🌋 See a volcano',},
+        {text: '🎓 Graduate college',},
+        {text: '💕 Have a long relationship',},
+        {text: '🗑️ Get dumped',},
+        {text: '🖊️ Sign a contract',},
+        {text: '🏢 Get a job',},
+        {text: '☝️ Get promoted',},
+        {text: '💵 Get a paycheck',},
+        {text: '🔥 Get fired',},
+        {text: '📰 Get in the news',},
+        {text: '🗳️ Vote in an election',},
+        {text: '🤡 Switch careers',},
+        {text: '🏠 Buy a house',},
+        {text: '💍 Get engaged',},
+        //Checked
+        {text: '👰 Get married',},
+        {text: '👶 Have a kid',},
+        {text: '🚶‍ Teach your kid to walk',},
+        {text: '📣 Teach your kid to talk',},
+        {text: '🎓 Watch your kid graduate',},
+        {text: '👰 Watch your kid get married',},
+        {text: '👴 Become a grandparent',},
+        {text: '🏖️ Retire',},
+        {text: '📔 Tell your grandkid a story',},
+        {text: '🌑 See a solar eclipse',},
+        {text: '🌷 Plant a garden',},
+        {text: '🌎 Travel the world',},
+        {text: '🎂 Turn 100',},
+        {text: '✔️ Complete Life Checklist',},
     ];
 
 
@@ -37,7 +98,7 @@ const dynamic = ()=>{
 
     createCards(dataArr);
 
-        // 
+    //
     wrapper.addEventListener('click', function(e){//bind function
         const item = e.target.closest('.item-main');
         if(item){
@@ -45,6 +106,7 @@ const dynamic = ()=>{
             check(item);
         }
     });
+    //
 
     function check(item){
         const text = item.children[1].textContent;
