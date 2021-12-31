@@ -1,15 +1,21 @@
 const dynamic = ()=>{
     const wrapper = document.querySelector('.main__body');
+    const bar = document.querySelector('.bottom-main__bar-inner');
+    const result = document.querySelector('.bottom-main__res');
+    const achived = document.querySelector('.bottom-main__achived');
+    let storage = [];
 
     const dataArr = [
         {text: '👶 Be born',},
         {text: '🚀 Fly',},
         {text: '🤗 Find Frieds',},
         {text: '🏫 go to school',},
+        {text: '📱 buy new phone',},
+        {text: '☎️ sold old phone',},
     ];
 
 
-    function createCards(data) {
+    function createCards(data){
       data.forEach(item => {
           const {text} = item;
           const card = document.createElement('div');
@@ -25,28 +31,58 @@ const dynamic = ()=>{
           `;
 
           wrapper.append(card);
-      });  
+          init(card); 
+      }); 
     }
 
     createCards(dataArr);
 
-
         // 
-        wrapper.addEventListener('click', function(e){
-            const item = e.target.closest('.item-main');
-            if(item){//we click on item
-                const checkbox = item.querySelector('input');
-                if(checkbox.checked == true){
-                    item.classList.add('_active');
-                }   
-                if(item.classList.contains('_active')){
-                    checkbox.checked = false;
-                }else{
-                    checkbox.checked = true;
-                }
-                item.classList.toggle('_active');
-            }
-        });
+    wrapper.addEventListener('click', function(e){//bind function
+        const item = e.target.closest('.item-main');
+        if(item){
+            switches(item);
+            check(item);
+        }
+    });
+
+    function check(item){
+        const text = item.children[1].textContent;
+        if(item.classList.contains('_active')){
+            storage.push(item);
+            localStorage.setItem(dataArr.findIndex(elem=> elem.text == text), true); //set Index of item
+        }else{//!active
+            storage.splice(storage.indexOf(item),1);
+            localStorage.removeItem(dataArr.findIndex(elem=> elem.text == text));
+        }
+        updBar();
+    }
+    
+    function updBar(){
+        achived.textContent = storage.length;
+        bar.style.width = (storage.length / dataArr.length * 100) + '%';
+    }
+        
+    function switches(item){
+        const checkbox = item.querySelector('input');
+        if(item.classList.contains('_active')){
+            checkbox.checked = false;
+        }else{
+            checkbox.checked = true;
+        }
+        item.classList.toggle('_active');
+    }
+
+    function init(item){
+        const text = item.children[1].textContent;
+        if(localStorage.getItem(dataArr.findIndex(elem=> elem.text == text))){ //if index contan's in localStorage
+            item.classList.add('_active');
+            storage.push(item);
+        }
+    }
+
+    updBar();
+    result.textContent = dataArr.length;
     
 };
 export default dynamic;
