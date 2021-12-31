@@ -18,7 +18,6 @@ const checkLogic = ()=>{
         if(item.classList.contains('_active')){
             storage.push(item);
         }
-        achived.textContent = storage.length;
         updBar();
         check(item);
     }
@@ -32,12 +31,12 @@ const checkLogic = ()=>{
                 storage.splice(storage.indexOf(item),1);
                 localStorage.removeItem(itemsArr.indexOf(item));
             }
-            achived.textContent = storage.length;
             updBar();
         });  
     }
 
     function updBar(){
+        achived.textContent = storage.length;
         bar.style.width = (storage.length / items.length * 100) + '%';
     }
     
