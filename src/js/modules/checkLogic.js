@@ -4,19 +4,23 @@ const checkLogic = ()=>{
     const achived = document.querySelector('.bottom-main__achived');
     const items = document.querySelectorAll('.item-main');
 
-
     let storage = [];
 
+    addByIndex();
 
     items.forEach(item=>{
-            if(item.classList.contains('_active')){
-                storage.push(item);
-            }
-            achived.textContent = storage.length;
-            updBar();
+        if(item.classList.contains('_active')){
+            storage.push(item);
+        }
+        achived.textContent = storage.length;
+        updBar();
+
+        check(item);
     });
 
-    items.forEach(item=>{
+    result.textContent = items.length;
+
+    function check(item){
         item.addEventListener('click',function(e){
             if(item.classList.contains('_active')){
                 storage.push(item);
@@ -26,28 +30,15 @@ const checkLogic = ()=>{
             achived.textContent = storage.length;
             updBar();
         });  
-    });
+    }
 
-    result.textContent = items.length;
-
-
-/////////Bar
-
-
-    function updBar() {
+    function updBar(){
         bar.style.width = (storage.length / items.length * 100) + '%';
     }
 
-
-// 340 = items.length
-// 200 = storage.length
-// storage.length / items.length * 100
-
-// Например, книга содержит 340 страниц. Вася прочитал 200 страниц. Вычислим, сколько процентов от всей книги прочитал Вася.
-
-// 200 / 340 · 100% = 0,59 · 100 = 59%
-// Таким образом, Вася прочитал 59% от всей книги.
-
+    function addByIndex() {
+        items[0].classList.add('_active');
+    }
 
 };
 export default checkLogic;
