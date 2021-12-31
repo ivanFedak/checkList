@@ -1,4 +1,4 @@
-const dataArr = [
+const dataArrEng = [
     {text: '👶 Be born',},
     {text: '🚶‍ Take first steps',},
     {text: '📣 Say first words',},
@@ -135,4 +135,5 @@ const dataArrRus = [
     {text: '✔️ Завершить "Life checklist"',},
 ];
 
-export {dataArr};
+export {dataArrEng};
+export {dataArrRus};

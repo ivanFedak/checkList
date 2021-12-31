@@ -1,10 +1,13 @@
-import {dataArr} from '../services/storage.js';
+import {dataArrRus, dataArrEng} from '../services/storage.js';
+
 const dynamic = ()=>{
     const wrapper = document.querySelector('.main__body');
     const bar = document.querySelector('.bottom-main__bar-inner');
     const result = document.querySelector('.bottom-main__res');
     const achived = document.querySelector('.bottom-main__achived');
+    const btnChange = document.querySelector('.main__btn');
     let storage = [];
+    let dataDb = dataArrEng;
 
 
     function createCards(data){
@@ -27,7 +30,7 @@ const dynamic = ()=>{
       }); 
     }
 
-    createCards(dataArr);
+    createCards(dataDb);
 
     //
     wrapper.addEventListener('click', function(e){//bind function
@@ -43,17 +46,17 @@ const dynamic = ()=>{
         const text = item.children[1].textContent;
         if(item.classList.contains('_active')){
             storage.push(item);
-            localStorage.setItem(dataArr.findIndex(elem=> elem.text == text), true); //set Index of item
+            localStorage.setItem(dataDb.findIndex(elem=> elem.text == text), true); //set Index of item
         }else{//!active
             storage.splice(storage.indexOf(item),1);
-            localStorage.removeItem(dataArr.findIndex(elem=> elem.text == text));
+            localStorage.removeItem(dataDb.findIndex(elem=> elem.text == text));
         }
         updBar();
     }
     
     function updBar(){
         achived.textContent = storage.length;
-        bar.style.width = (storage.length / dataArr.length * 100) + '%';
+        bar.style.width = (storage.length / dataDb.length * 100) + '%';
     }
         
     function switches(item){
@@ -68,14 +71,16 @@ const dynamic = ()=>{
 
     function init(item){
         const text = item.children[1].textContent;
-        if(localStorage.getItem(dataArr.findIndex(elem=> elem.text == text))){ //if index contan's in localStorage
+        if(localStorage.getItem(dataDb.findIndex(elem=> elem.text == text))){ //if index contan's in localStorage
             item.classList.add('_active');
             storage.push(item);
         }
     }
 
     updBar();
-    result.textContent = dataArr.length;
+    result.textContent = dataDb.length;
+
+    
     
 };
 export default dynamic;

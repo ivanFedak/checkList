@@ -4,14 +4,36 @@
     &__container
         @media (max-width: $md4 + px)//Less 550
            padding: 0
-    &__title
+    &__header
+        display: flex
+        align-items: center
+        justify-content: space-between
+        background: #fff
         padding: 30px 20px
         margin-bottom: 15px
-        
+        @media (max-width: $md4 + px)//Less 550
+           flex-direction: column
+           padding: 20px
+    &__title
         @include adaptiv-value('font-size', 32, 22, 1)
         font-weight: 700
         text-align: center
-        background: #fff
+        @media (max-width: $md4 + px)//Less 550
+          margin-bottom: 10px 
+    &__btn
+        display: flex
+        align-items: center
+        justify-content: center
+        text-align: center
+        padding: 10px 20px
+        background: #333
+        border-radius: 0px
+        transition: all 0.3s ease 0s
+        color: #fff
+        min-width: 220px
+        @media (any-hover: hover )
+           &:hover
+                background: #222
     &__body
         display: grid
         grid-template-columns: repeat(3,1fr)
