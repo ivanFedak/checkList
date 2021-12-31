@@ -14,9 +14,7 @@ const switchs = ()=>{
             }
             checkBox.classList.toggle('_active');
         });
-        
-
-
     });
+    
 };
 export default switchs;

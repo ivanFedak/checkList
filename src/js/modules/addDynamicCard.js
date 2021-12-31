@@ -29,5 +29,24 @@ const dynamic = ()=>{
     }
 
     createCards(dataArr);
+
+
+        // 
+        wrapper.addEventListener('click', function(e){
+            const item = e.target.closest('.item-main');
+            if(item){//we click on item
+                const checkbox = item.querySelector('input');
+                if(checkbox.checked == true){
+                    item.classList.add('_active');
+                }   
+                if(item.classList.contains('_active')){
+                    checkbox.checked = false;
+                }else{
+                    checkbox.checked = true;
+                }
+                item.classList.toggle('_active');
+            }
+        });
+    
 };
 export default dynamic;
