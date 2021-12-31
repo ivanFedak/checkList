@@ -135,6 +135,7 @@ body.ie ._ibg img {
 .main {
   padding-top: 100px;
   padding-bottom: 70px;
+  position: relative;
 }
 @media (max-width: 1230px) {
   .main {
