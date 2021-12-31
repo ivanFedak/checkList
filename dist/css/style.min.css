@@ -103,6 +103,11 @@ textarea {
   border: 1px solid #ccc;
 }
 
+._noClick {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
 ._ibg {
   position: relative;
 }

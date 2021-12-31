@@ -39,6 +39,7 @@ const dynamic = ()=>{
     wrapper.addEventListener('click', function(e){//bind function
         const item = e.target.closest('.item-main');
         if(item){
+            console.log(item);
             switches(item);
             check(item);
         }
@@ -80,8 +81,13 @@ const dynamic = ()=>{
         }
     }
 
+
+
+
+    //def
     updBar();
     result.textContent = dataDb.length;
+    wrapper.lastChild.classList.add('_noClick');
 
     btnChange.addEventListener('click',function(e){
         if(localStorage.getItem('dataArrRus')){ //patern for 1 btn
