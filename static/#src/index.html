@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    @@include('html/head.html',{
+        "title": 'Главная'
+    })
+<body>
+    <div class="wrapper">
+        @@include('html/header.html')
+        <main class="page">
+
+            <div class="main">
+                <div class='main__container _container'>
+                    <div class="main__title">Life Checklist</div>
+                    <div class="main__body">
+     
+                        <div class="main__item item-main">
+                            <div class="item-main__checkbox">
+                                <input type="checkbox">
+                                <span class="item-main__check">
+                                    <img src="@img/check.svg" alt="">
+                                </span>
+                            </div>
+                            <div class="item-main__text">👶 Be born</div>
+                        </div>
+                        <div class="main__item item-main">
+                            <div class="item-main__checkbox">
+                                <input type="checkbox">
+                                <span class="item-main__check">
+                                    <img src="@img/check.svg" alt="">
+                                </span>
+                            </div>
+                            <div class="item-main__text">😏 Be Happy</div>
+                        </div>
+                        <div class="main__item item-main">
+                            <div class="item-main__checkbox">
+                                <input type="checkbox">
+                                <span class="item-main__check">
+                                    <img src="@img/check.svg" alt="">
+                                </span>
+                            </div>
+                            <div class="item-main__text">😡 Be mad</div>
+                        </div>
+                        <div class="main__item item-main">
+                            <div class="item-main__checkbox">
+                                <input type="checkbox">
+                                <span class="item-main__check">
+                                    <img src="@img/check.svg" alt="">
+                                </span>
+                            </div>
+                            <div class="item-main__text">😠 Be angry</div>
+                        </div>
+     
+                    </div>
+
+                    <div class="main__bottom bottom-main">
+                        <div class="bottom-main__text">You've completed <span class="bottom-main__achived">0</span>/<span class="bottom-main__res">66</span> items</div>
+                        <div class="bottom-main__bar">
+                            <div class="bottom-main__bar-inner"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>      
+        @@include('html/footer.html')
+    </div>
+    @@include('html/modals.html')
+    @@include('html/scripts.html')
+</body>
+</html>
