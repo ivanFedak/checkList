@@ -3,29 +3,34 @@ const checkLogic = ()=>{
     const result = document.querySelector('.bottom-main__res');
     const achived = document.querySelector('.bottom-main__achived');
     const items = document.querySelectorAll('.item-main');
-
+    const itemsArr = Array.from(items);
     let storage = [];
 
-    addByIndex();
 
-    items.forEach(item=>{
+
+    items.forEach(item=> init(item));
+
+
+    function init(item) {
+        if(localStorage.getItem(itemsArr.indexOf(item))){
+            item.classList.add('_active');
+        }
         if(item.classList.contains('_active')){
             storage.push(item);
         }
         achived.textContent = storage.length;
         updBar();
-
         check(item);
-    });
-
-    result.textContent = items.length;
+    }
 
     function check(item){
         item.addEventListener('click',function(e){
             if(item.classList.contains('_active')){
                 storage.push(item);
+                localStorage.setItem(itemsArr.indexOf(item), true);
             }else{ //not active
                 storage.splice(storage.indexOf(item),1);
+                localStorage.removeItem(itemsArr.indexOf(item));
             }
             achived.textContent = storage.length;
             updBar();
@@ -35,10 +40,9 @@ const checkLogic = ()=>{
     function updBar(){
         bar.style.width = (storage.length / items.length * 100) + '%';
     }
+    
+    result.textContent = items.length;
 
-    function addByIndex() {
-        items[0].classList.add('_active');
-    }
 
 };
 export default checkLogic;
