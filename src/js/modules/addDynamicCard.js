@@ -35,7 +35,7 @@ const dynamic = ()=>{
 
     createCards(dataDb);
 
-    //
+    //init
     wrapper.addEventListener('click', function(e){//bind function
         const item = e.target.closest('.item-main');
         if(item){
@@ -49,19 +49,14 @@ const dynamic = ()=>{
         const text = item.children[1].textContent;
         if(item.classList.contains('_active')){
             storage.push(item);
-            localStorage.setItem(dataDb.findIndex(elem=> elem.text == text), true); //set Index of item
+            localStorage.setItem(dataDb.findIndex(elem=> elem.text == text), true); //set Index of item (return index)
         }else{//!active
             storage.splice(storage.indexOf(item),1);
             localStorage.removeItem(dataDb.findIndex(elem=> elem.text == text));
         }
         updBar();
-    }
-    
-    function updBar(){
-        achived.textContent = storage.length;
-        bar.style.width = (storage.length / dataDb.length * 100) + '%';
-    }
-        
+    } 
+
     function switches(item){
         const checkbox = item.querySelector('input');
         if(item.classList.contains('_active')){
@@ -70,6 +65,7 @@ const dynamic = ()=>{
             checkbox.checked = true;
         }
         item.classList.toggle('_active');
+        console.log(checkbox.checked);
     }
 
     function init(item){
@@ -80,24 +76,39 @@ const dynamic = ()=>{
         }
     }
 
+    function updBar(){
+        achived.textContent = storage.length;
+        bar.style.width = (storage.length / dataDb.length * 100) + '%';
+    }
+        
 
 
+/////////All init 
 
-    //def
-    updBar();
-    result.textContent = dataDb.length;
-    wrapper.lastChild.classList.add('_noClick');
-
-    btnChange.addEventListener('click',function(e){
-        if(localStorage.getItem('dataArrRus')){ //patern for 1 btn
+    function changeLang(){
+        if(localStorage.getItem('dataArrRus')){ //patern localStorage for 1 btn
             localStorage.removeItem('dataArrRus');
         }else{
             localStorage.setItem('dataArrRus', true);
         }
         window.location.reload();
-    });
+    }
+
+    // function removeNoClick(){
+    //     const lastEl = wrapper.lastChild;
+    //     const checkbox = lastEl.querySelector('input');
+    //     if(storage.length >= (dataDb.length - 1)){ //more or = 65}
+    //     else{//less 65}
+    // }
     
     
+    // removeNoClick();
+    updBar();
+    wrapper.lastChild.classList.add('_noClick');
+    result.textContent = dataDb.length;
+    btnChange.addEventListener('click',changeLang);
+    
+///////////// 
     
 };
 export default dynamic;
