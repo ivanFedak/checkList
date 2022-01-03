@@ -65,7 +65,6 @@ const dynamic = ()=>{
             checkbox.checked = true;
         }
         item.classList.toggle('_active');
-        console.log(checkbox.checked);
     }
 
     function init(item){
@@ -84,7 +83,6 @@ const dynamic = ()=>{
 
 
 /////////All init 
-
     function changeLang(){
         if(localStorage.getItem('dataArrRus')){ //patern localStorage for 1 btn
             localStorage.removeItem('dataArrRus');
@@ -94,15 +92,6 @@ const dynamic = ()=>{
         window.location.reload();
     }
 
-    // function removeNoClick(){
-    //     const lastEl = wrapper.lastChild;
-    //     const checkbox = lastEl.querySelector('input');
-    //     if(storage.length >= (dataDb.length - 1)){ //more or = 65}
-    //     else{//less 65}
-    // }
-    
-    
-    // removeNoClick();
     updBar();
     wrapper.lastChild.classList.add('_noClick');
     result.textContent = dataDb.length;
