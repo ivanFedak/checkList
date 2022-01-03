@@ -54,6 +54,7 @@ const dynamic = ()=>{
             storage.splice(storage.indexOf(item),1);
             localStorage.removeItem(dataDb.findIndex(elem=> elem.text == text));
         }
+        noClick();
         updBar();
     } 
 
@@ -92,8 +93,18 @@ const dynamic = ()=>{
         window.location.reload();
     }
 
+    function noClick() {
+        const lastEl = wrapper.lastChild; 
+        if(storage.length >= (dataDb.length - 1)){ //more or = 65
+            lastEl.classList.remove('_noClick');
+            lastEl.click();
+        }else{ //less 65
+            lastEl.classList.add('_noClick');
+        }
+    }
+
     updBar();
-    wrapper.lastChild.classList.add('_noClick');
+    noClick();
     result.textContent = dataDb.length;
     btnChange.addEventListener('click',changeLang);
     
